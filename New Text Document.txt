@@ -1,0 +1,12 @@
+Features:
+
+- Input water intake(in ml or oz or a glass)
+- How much water should you drink for each day
+- Reminder to drink water in intervals of time(real time notifications)
+- Real-time notifications when the user hasn't opened a new tab for some time
+and therefore not tracked their water intake levels for a specified period.
+
+Note: Feature based on priority i.e. step wise
+
+
+Design: https://dribbble.com/shots/16202161-Water-Drinking-Reminder-App
