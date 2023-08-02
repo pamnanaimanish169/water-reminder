@@ -5,23 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Reminder</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
 </head>
 <body>
     <div class="container">
         <div>
-            <img src="./glass-of-water.jpg" alt="glass-of-water" class="glass-of-water">
+            <img src="./glass-of-water.svg" alt="glass-of-water" class="glass-of-water">
+        </div>
+
+        <div class="remind-container">
+            Remind in (minutes):
+            <br>
+
+            <input type="text" id="remind-time" oninput="checkInput(this)" maxlength="2">
+
+            <br>
+            <button class="submit-button" id="submit-button" onclick="showNotification(this)">Submit</button>
+        </div>
+
+        <!-- Commented until further functaionlity is finalised -->
+        <!-- <div>
+            Remaining: <span id="remaining">3700</span>  ml
         </div>
 
         <div>
-            <h1>1290 ml</h1>
-        </div>
+            <button class="add-button">+</button>
+        </div> -->
 
-        <div>
-            Remaining: 603 ml
-        </div>
-
-        <button class="add-button">+</button>
     </div>
-    <script src="./script.js"></script>
 </body>
 </html>
