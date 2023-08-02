@@ -4,8 +4,13 @@
     "version": "1.0.0",
     "manifest_version" : 3,
     "permissions": [
-        "notifications"
+        "notifications",
+        "alarms",
+        "storage"
     ],
+    "background": {
+        "service_worker": "background.js"
+    },
     "author": "Manish Pamnani",
     "action": {
         "default_popup": "index.html",
