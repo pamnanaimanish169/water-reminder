@@ -12,8 +12,8 @@ chrome.storage.local.get('interval', function (data) {
       const options = {
         type: 'basic',
         iconUrl: 'glass-of-water.jpg',
-        title: 'My Notification',
-        message: 'This is a recurring notification.'
+        title: 'Water reminder',
+        message: "Don't forget to drink a glass of water!"
       };
   
       chrome.notifications.create(options);
