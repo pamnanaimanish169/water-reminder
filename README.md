@@ -1,6 +1,7 @@
 # Next steps
 
-- Remind users through push notifications.
+~~- Remind users through push notifications.~~
+- Add water drank in a day functionality(through firebase)
 - Figure out a way to add amount of water you sipped
 - Make the total amount of water & remaining water dynamic
 
