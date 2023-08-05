@@ -4,16 +4,19 @@
   "description": "~~- Remind users through push notifications.~~\r - Add login/signup funcationality(for water drink functionliaty)\r - Add water drank in a day functionality(through firebase)\r - Figure out a way to add amount of water you sipped\r - Make the total amount of water & remaining water dynamic",
   "main": "background.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --entry ./script.js --output-path dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase": "^10.1.0"
+    "firebase": "^10.1.0",
+    "serve": "^14.2.0"
   },
   "devDependencies": {
     "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }

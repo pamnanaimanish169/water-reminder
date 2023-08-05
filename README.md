@@ -1,6 +1,11 @@
 # Next steps
 
 ~~- Remind users through push notifications.~~
+~~- Setup firebase~~
+- Setup a way so that you dont have to run this command again & again(something like hot reloading)
+
+node_modules/.bin/webpack --entry ./script.js -o dist
+
 - Add login/signup funcationality(for water drink functionliaty)
 - Add water drank in a day functionality(through firebase)
 - Figure out a way to add amount of water you sipped
@@ -20,3 +25,8 @@ https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-dep
 
 The measurement of a glass of water in milliliters varies between 200 ml and 250 ml.
 https://blog.monouso-direct.com/how-many-ml-has-a-glass/#:~:text=The%20measurement%20of%20a%20glass,200%20ml%20and%20250%20ml
+
+
+# How to run this project
+
+Simple run serve from the root directory of the folder i.e. /water-reminder
