@@ -1,0 +1,19 @@
+{
+  "name": "water-reminder",
+  "version": "1.0.0",
+  "description": "~~- Remind users through push notifications.~~\r - Add login/signup funcationality(for water drink functionliaty)\r - Add water drank in a day functionality(through firebase)\r - Figure out a way to add amount of water you sipped\r - Make the total amount of water & remaining water dynamic",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^10.1.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
