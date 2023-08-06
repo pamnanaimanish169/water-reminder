@@ -23,20 +23,45 @@ let saveValue = firebaseDB.push();
 
 saveValue.set({ name: "Sapna Pamnani" });
 
-// Auth
-// FirebaseUI config.
-var uiConfig = {
-  signInSuccessUrl: "#",
-  signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
-    {
-      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      requireDisplayName: false,
-    },
-  ],
-};
+const element = document.getElementById("login-signup-button");
+element.addEventListener("click", (event) => {
+  event.preventDefault();
+  showLogin();
+});
 
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-// The start method will wait until the DOM is loaded.
-ui.start("#firebaseui-auth-container", uiConfig);
+const showLogin = () => {
+  // Auth
+  // FirebaseUI config.
+  var uiConfig = {
+    callbacks: {
+      signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+        //   Hide the other div to maintain screen visibility
+        const remindContainer = document.getElementsByClassName("remind-form");
+        remindContainer[0].style.display = "block";
+
+        const loginSignupButton = document.getElementById('login-signup-container');
+        loginSignupButton.style.display = 'none';
+      },
+      signInFailure: (error) => {
+        console.error("Error in signing in: ", error);
+      },
+    },
+    signInSuccessUrl: "#",
+    signInOptions: [
+      // Leave the lines as is for the providers you want to offer your users.
+      {
+        provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        requireDisplayName: false,
+      },
+    ],
+  };
+
+  // Initialize the FirebaseUI Widget using Firebase.
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  // The start method will wait until the DOM is loaded.
+  ui.start("#firebaseui-auth-container", uiConfig);
+
+  //   Hide the other div to maintain screen visibility
+  const remindContainer = document.getElementsByClassName("remind-form");
+  remindContainer[0].style.display = "none";
+};
