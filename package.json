@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "firebase": "^10.1.0",
+    "firebaseui": "^6.1.0",
     "serve": "^14.2.0"
   },
   "devDependencies": {

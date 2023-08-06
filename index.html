@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Water Reminder</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <div class="container">
-        <div>
-            <img src="./glass-of-water.svg" alt="glass-of-water" class="glass-of-water">
-        </div>
+      <div>
+        <img
+          src="./glass-of-water.svg"
+          alt="glass-of-water"
+          class="glass-of-water"
+        />
+      </div>
 
-        <div class="remind-container">
-            Remind in (minutes):
-            <br>
+      <div class="remind-container">
+        Remind in (minutes):
+        <br />
 
-            <input type="text" id="remind-time" maxlength="2">
+        <input type="text" id="remind-time" maxlength="2" />
 
-            <br>
-            <button class="submit-button" id="submit-button">Submit</button>
-        </div>
+        <br />
+        <button class="submit-button" id="submit-button">Submit</button>
+      </div>
 
-        <!-- Commented until further functaionlity is finalised -->
-        <!-- <div>
+      <div><a href="javascript:void(0)">Login/Signup</a> to continue.</div>
+
+      <div id="firebaseui-auth-container"></div>
+
+      <!-- Commented until further functaionlity is finalised -->
+      <!-- <div>
             Remaining: <span id="remaining">3700</span>  ml
         </div>
 
         <div>
             <button class="add-button">+</button>
         </div> -->
-
     </div>
     <!-- <script src="./popup.js"></script>
     <script type="module" src="./script.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script> -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
     <script type="module" src="./script.js"></script>
-</body>
+  </body>
 </html>
