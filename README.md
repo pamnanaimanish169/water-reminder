@@ -3,7 +3,8 @@
 ~~- Remind users through push notifications.~~
 ~~- Setup firebase~~
 ~~- Setup a way so that you dont have to run this command again & again(something like hot reloading)node_modules/.bin/webpack --entry ./script.js -o dist~~
-- Add login/signup funcationality(for water drink functionliaty)
+~~- Add login/signup funcationality(for water drink functionliaty)~~
+    - Fix login/signup shows on realod
 - Add water drank in a day functionality(through firebase)
 - Remaining water functionliaty
 - Figure out a way to add amount of water you sipped
