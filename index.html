@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+
     <div class="container">
       <div class="remind-form">
         <div>
@@ -32,22 +33,15 @@
           <button class="submit-button" id="submit-button">Submit</button>
         </div>
         <br />
-        <div id ="login-signup-container">
+        <!-- <span class="loader" style="display: none;"></span> -->
+
+        <div id ="login-signup-container" >
           <a id="login-signup-button" href="javascript:void(0)">Login/Signup</a>
           to continue.
         </div>
       </div>
 
       <div id="firebaseui-auth-container"></div>
-
-      <!-- Commented until further functaionlity is finalised -->
-      <!-- <div>
-            Remaining: <span id="remaining">3700</span>  ml
-        </div>
-
-        <div>
-            <button class="add-button">+</button>
-        </div> -->
     </div>
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
@@ -60,5 +54,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
     <script type="module" src="./script.js"></script>
+
+
   </body>
 </html>

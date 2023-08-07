@@ -8,6 +8,11 @@
     - Figure out a way to import/export firebase in a single file, so you don't have to write it again & again
 ~~- Add water drank in a day functionality(through firebase)~~
 ~~- Remaining water functionliaty~~
+- Show the amount of water emaining on initl load
+- Logout functionlatiy
+- Refactor the code
+- Remove the unecessary file
+- Test this extension in other people laptops (gaurang, aditya, sister) or distribute in the community
 
 Ref:
 
