@@ -1,10 +1,3 @@
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-// import {
-//   getDatabase,
-//   set,
-//   ref,
-// } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
-
 const firebaseApp = firebase.initializeApp({
   apiKey: "AIzaSyCQLG34McSyK32qYsLAUYhYD9_BUK0QLao",
   authDomain: "water-reminder-b9aac.firebaseapp.com",
@@ -21,7 +14,7 @@ const firebaseDB = firebase.database().ref("/");
 
 let saveValue = firebaseDB.push();
 
-saveValue.set({ name: "Sapna Pamnani" });
+// saveValue.set({ name: "Sapna Pamnani" });
 
 const element = document.getElementById("login-signup-button");
 element.addEventListener("click", (event) => {
@@ -41,12 +34,14 @@ const showLogin = () => {
 
         const loginSignupButton = document.getElementById('login-signup-container');
         loginSignupButton.style.display = 'none';
+
+		window.location.href = '/dashboard';
       },
       signInFailure: (error) => {
         console.error("Error in signing in: ", error);
       },
     },
-    signInSuccessUrl: "#",
+    signInSuccessUrl: "/dashboard",
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
       {

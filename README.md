@@ -5,6 +5,7 @@
 ~~- Setup a way so that you dont have to run this command again & again(something like hot reloading)node_modules/.bin/webpack --entry ./script.js -o dist~~
 ~~- Add login/signup funcationality(for water drink functionliaty)~~
     - Fix login/signup shows on realod
+    - Figure out a way to import/export firebase in a single file, so you don't have to write it again & again
 - Add water drank in a day functionality(through firebase)
 - Remaining water functionliaty
 - Figure out a way to add amount of water you sipped
