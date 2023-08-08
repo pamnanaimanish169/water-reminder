@@ -1,14 +1,9 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Water Reminder</title>
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css"
-    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -23,17 +18,21 @@
         </div>
       </div>
 
-      <div id="firebaseui-auth-container"></div>
+      <form>
+        <input type="email" id="email" required>
+        <input type="password" id="password" required>
+        <button id="login-register-button" onclick="handleSubmit()">Submit</button>
+      </form>
 
-      Water Remaining:
+      <!-- Water Remaining:
       <div id="water-remaining"></div>
       ml
 
       <div>
         <button class="add-button">+</button>
-      </div>
+      </div> -->
     </div>
 
-    <script type="module" src="./dashboard.js"></script>
+    <script type="module" src="./login.js"></script>
   </body>
-</html> -->
+</html>
