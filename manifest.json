@@ -1,19 +1,24 @@
 {
-    "name" : "Water Reminder",
-    "description" : "This app reminds you to drink a glass of water in every 20 minutes.",
-    "version": "1.0.0",
-    "manifest_version" : 3,
-    "permissions": [
-        "notifications",
-        "alarms",
-        "storage"
-    ],
-    "background": {
-        "service_worker": "background.js"
-    },
-    "author": "Manish Pamnani",
-    "action": {
-        "default_popup": "index.html",
-        "default_icon": "./glass-of-water.svg"
+  "name": "Water Reminder",
+  "description": "This app reminds you to drink a glass of water in every 20 minutes.",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "permissions": ["notifications", "alarms", "storage"],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["background.js"]
     }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "author": "Manish Pamnani",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "./glass-of-water.svg"
+  }
 }

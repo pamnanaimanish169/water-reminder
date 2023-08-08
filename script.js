@@ -16,32 +16,6 @@ let saveValue = firebaseDB.push();
 
 // saveValue.set({ name: "Sapna Pamnani" });
 
-// To show the loader & hide the remaining screen
-document.querySelector(".loader").style.display = "block";
-document.querySelector("#login-signup-container").style.display = 
-"none";
-
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    console.log(user.uid);
-    const element = document.getElementById("login-signup-container");
-    if (user.uid) {
-      element.style.display = "none";
-      // To hide the loader & show the remaining screen
-      document.querySelector(".loader").style.display = "none";
-      document.querySelector("#login-signup-container").style.display = 
-"none";
-    }
-  } else {
-    element.style.display = "block";
-    console.log("User is signed out");
-    // To hide the loader
-    document.querySelector(".loader").style.display = "none";
-    document.querySelector("#login-signup-container").style.display = 
-"block";
-  }
-});
-
 const element = document.getElementById("login-signup-button");
 element.addEventListener("click", (event) => {
   event.preventDefault();
@@ -58,12 +32,10 @@ const showLogin = () => {
         const remindContainer = document.getElementsByClassName("remind-form");
         remindContainer[0].style.display = "block";
 
-        const loginSignupButton = document.getElementById(
-          "login-signup-container"
-        );
-        loginSignupButton.style.display = "none";
+        const loginSignupButton = document.getElementById('login-signup-container');
+        loginSignupButton.style.display = 'none';
 
-        window.location.href = '/dashboard';
+		window.location.href = '/dashboard';
       },
       signInFailure: (error) => {
         console.error("Error in signing in: ", error);

@@ -1,4 +1,4 @@
-chrome.storage.local.get('interval', function (data) {
+  chrome.storage.local.get('interval', function (data) {
     const interval = data && data.interval ? data.interval : 1;
   
     chrome.alarms.create('recurringAlarm', {

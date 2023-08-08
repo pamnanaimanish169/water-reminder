@@ -8,6 +8,7 @@
     - Figure out a way to import/export firebase in a single file, so you don't have to write it again & again
 ~~- Add water drank in a day functionality(through firebase)~~
 ~~- Remaining water functionliaty~~
+- Foloow this tutoril to create a new project: https://www.plasmo.com/blog/posts/firebase-chrome-extension
 - Show the amount of water emaining on initl load
 - Logout functionlatiy
 - Refactor the code
