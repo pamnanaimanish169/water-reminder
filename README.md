@@ -18,6 +18,12 @@
 - Remove the unecessary file
 - Test this extension in other people laptops (gaurang, aditya, sister) or distribute in the community
 - Try to use sass/scss with this project
+- Hide access key
+- Implement dashboard page
+- Make a auth state checker(interceptor)
+- Secure firebase rules(authenticate REST request with that)
+
+https://firebase.google.com/docs/reference/rest/database#section-param-auth
 
 Ref:
 

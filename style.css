@@ -54,6 +54,11 @@ body {
   text-align: center;
 }
 
+#errors {
+  color: red;
+  text-align: center;
+}
+
 /* Loader */
 .loader {
   border: 0.5rem solid #f3f3f3;

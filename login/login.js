@@ -34,7 +34,7 @@ const loginUser = async () => {
       } else {
         error.innerHTML = "";
         window.location.href = "../dashboard/dashboard.html";
-        localStorage.setItem("idToken", data?.idToken);
+        localStorage.setItem("user", JSON.stringify(data));
       }
     })
     .catch((error) => {
