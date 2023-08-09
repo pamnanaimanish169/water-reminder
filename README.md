@@ -9,17 +9,17 @@
 ~~- Add water drank in a day functionality(through firebase)~~
 ~~- Remaining water functionliaty~~
 ~~- Foloow this tutoril to create a new project: https://www.plasmo.com/blog/posts/firebase-chrome-extension~~
-- Complete HTML page for Signup & login with validations
+~~- Complete HTML page for Signup & login with validations~~
 - Implement auth state changed functinality i.e. whenever a user refreshes or stays on a page for long time
   he should be still logged in.
-- Show the amount of water emaining on initl load
+~~- Show the amount of water emaining on initl load~~
 - Logout functionlatiy
 - Refactor the code
 - Remove the unecessary file
 - Test this extension in other people laptops (gaurang, aditya, sister) or distribute in the community
 - Try to use sass/scss with this project
 - Hide access key
-- Implement dashboard page
+~~- Implement dashboard page~~
 - Make a auth state checker(interceptor)
 - Secure firebase rules(authenticate REST request with that)
 
