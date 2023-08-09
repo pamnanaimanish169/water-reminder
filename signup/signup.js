@@ -28,12 +28,20 @@ const loginUser = async () => {
       // if (!response.ok) {
       //   throw new Error(`HTTP error! Status: ${response.json()}`);
       // }
-      console.log(response)
       return response.json();
     })
     .then((data) => {
-      console.log("Sign up successful:", data);
+      const error = document.getElementById('errors');
       // Handle the successful response
+      if(data.error) {
+        console.log(data.error.message);
+        error.innerHTML = data.error.message;
+      } else {
+        console.log('Sign up successfull...', data);
+        error.innerHTML = '';
+        window.location.href = '../dashboard/dashboard.html';
+        localStorage.setItem('idToken', data?.idToken);
+      }
     })
     .catch((error) => {
       console.error("Error in signing up the user:", error);

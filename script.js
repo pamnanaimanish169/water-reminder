@@ -1,5 +1,5 @@
 const element = document.getElementById("login-signup-button");
 element.addEventListener("click", (event) => {
   event.preventDefault();
-  window.location.href='/login.html';
+  window.location.href='/signup/signup.html';
 });
