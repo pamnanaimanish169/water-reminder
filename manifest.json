@@ -1,16 +1,10 @@
 {
   "name": "Water Reminder",
-  "description": "This app reminds you to drink a glass of water in every 20 minutes.",
+  "description": "This app reminds you to drink a glass of water at specific interval of time.",
   "version": "1.0.0",
   "manifest_version": 3,
-  "permissions": ["notifications", "alarms", "storage"],
+  "permissions": ["notifications", "alarms"],
   "host_permissions": ["<all_urls>"],
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["background.js"]
-    }
-  ],
   "background": {
     "service_worker": "background.js"
   },

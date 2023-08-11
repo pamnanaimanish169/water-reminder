@@ -23,6 +23,7 @@
 - Make a auth state checker(interceptor)
 - Secure firebase rules(authenticate REST request with that)
 - Setup a functionality to filter water drank in a particular day i.e. filter by day(otherwiser it will show 0 till infinity)
+- If by default the users dont choose a default time for reminder, then the notification should not show.
 
 https://firebase.google.com/docs/reference/rest/database#section-param-auth
 
@@ -45,3 +46,5 @@ https://blog.monouso-direct.com/how-many-ml-has-a-glass/#:~:text=The%20measureme
 # How to run this project
 
 Simple run serve from the root directory of the folder i.e. /water-reminder
+
+https://stackoverflow.com/questions/55801494/persist-auth-state-firebase-chrome-extension

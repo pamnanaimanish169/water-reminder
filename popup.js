@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     const intervalInput = document.getElementById('remind-time');
+    console.log(intervalInput);
     
-    chrome.storage.local.get('interval')
+    chrome?.storage?.local?.get('interval')
       .then(function (data) {
+        console.log(data);
         if (data && data.interval) {
           intervalInput.value = data.interval;
         }
@@ -12,8 +14,12 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   
     document.getElementById('submit-button').addEventListener('click', function () {
+      console.log('submit-button')
       const interval = parseInt(intervalInput.value);
-      chrome.storage.local.set({ interval: interval })
+      console.log(interval);
+      console.log(chrome);
+
+      chrome?.storage?.local?.set({ interval: interval })
         .then(function () {
           alert('Interval saved!');
         })
