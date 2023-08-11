@@ -59,6 +59,10 @@ body {
   text-align: center;
 }
 
+#submit-button:hover {
+  cursor: pointer;
+}
+
 /* Loader */
 .loader {
   border: 0.5rem solid #f3f3f3;

@@ -3,3 +3,8 @@ element.addEventListener("click", (event) => {
   event.preventDefault();
   window.location.href='/signup/signup.html';
 });
+
+const submitButton = document.getElementById("submit-button");
+element.addEventListener("click", (event) => {
+  event.preventDefault();
+});
