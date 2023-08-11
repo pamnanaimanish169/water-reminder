@@ -12,6 +12,7 @@
 ~~- Complete HTML page for Signup & login with validations~~
 - Implement auth state changed functinality i.e. whenever a user refreshes or stays on a page for long time
   he should be still logged in.
+  https://stackoverflow.com/questions/55801494/persist-auth-state-firebase-chrome-extension
 ~~- Show the amount of water emaining on initl load~~
 - Logout functionlatiy
 - Refactor the code
