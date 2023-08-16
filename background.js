@@ -1,4 +1,13 @@
-  chrome?.storage?.local?.get('interval', function (data) {
+const isAuthenticated = chrome.storage.local.get('isAuthenticated', (data) => {
+  console.log(data?.isAuthenticated);
+
+  if(data?.isAuthenticated === true || data?.isAuthenticated === 'true') {
+    // redirect to another tab
+  } 
+});
+
+
+chrome?.storage?.local?.get('interval', function (data) {
     const interval = data && data.interval;
   
     chrome.alarms.create('recurringAlarm', {

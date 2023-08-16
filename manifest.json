@@ -3,7 +3,14 @@
   "description": "This app reminds you to drink a glass of water at specific interval of time.",
   "version": "1.0.0",
   "manifest_version": 3,
-  "permissions": ["notifications", "alarms", "storage"],
+  "permissions": [
+    "notifications", "alarms", "storage",
+    "https://www.googleapis.com/*",
+    "https://identitytoolkit.googleapis.com/*"
+  ],
+  "sandbox": {
+    "pages": ["https://www.gstatic.com/*"]
+  },
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
