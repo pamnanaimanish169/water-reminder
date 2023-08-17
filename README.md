@@ -23,7 +23,7 @@
 ~~- Implement dashboard page~~
 - Make a auth state checker(interceptor)
 - Secure firebase rules(authenticate REST request with that)
-- Setup a functionality to filter water drank in a particular day i.e. filter by day(otherwiser it will show 0 till infinity)
+**- Setup a functionality to filter water drank in a particular day i.e. filter by day(otherwiser it will show 0 till infinity) **
 - If by default the users dont choose a default time for reminder, then the notification should not show.
 - Update fonts
   - Lato
