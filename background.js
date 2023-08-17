@@ -1,15 +1,11 @@
 let isAuthenticated;
 
 chrome.storage.local.get("isAuthenticated", (data) => {
-  console.log(data);
   isAuthenticated = data?.isAuthenticated;
-  console.log(isAuthenticated);
 });
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log(message);
   if (message === "getAuthStatus") {
-    console.log(isAuthenticated);
     sendResponse(isAuthenticated)
   }
 });

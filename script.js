@@ -5,8 +5,6 @@ element.addEventListener("click", (event) => {
 });
 
 chrome.runtime.sendMessage('getAuthStatus', (data) => {
-  console.log('data received from background.js' ,data);
-
   if(data === true) {
     // redirect to dashboard.html
     window.location.href = './dashboard/dashboard.html';

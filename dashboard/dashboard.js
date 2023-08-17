@@ -20,8 +20,6 @@ firebase.initializeApp(firebaseConfig);
 
 const addButton = document.getElementById("add-button");
 addButton.addEventListener("click", (event) => {
-  console.log(waterRemainingValue, "waterRemainingValue");
-
   if (waterRemainingValue <= 0) {
     errorElement.innerHTML =
       "You have reached the full limit for today. Come back tomorrow for more.";
@@ -34,7 +32,6 @@ addButton.addEventListener("click", (event) => {
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     userId = user?.uid;
-    console.log(userId);
     getWater();
   }
 });
@@ -81,7 +78,6 @@ const getWater = () => {
     .then((data) => {
       if (data) {
         //   3700 ml is staandard for now
-        console.log(Object.values(data), "getWater  ");
         waterAdded = Object.values(data).length * 200;
         const remainingWater = 3700 - waterAdded;
         waterRemainingValue = remainingWater;
@@ -108,12 +104,10 @@ const getWater = () => {
 // Logout functionality
 const logout = document.getElementById("logout");
 logout.addEventListener("click", () => {
-  console.log("logout");
   firebase
     .auth()
     .signOut()
     .then((res) => {
-      console.log("Signed out", res);
       chrome.storage.local.set({ isAuthenticated: false });
       window.location.href = "../login/login.html";
     })
