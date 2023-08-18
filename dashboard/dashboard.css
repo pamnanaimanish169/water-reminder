@@ -1,0 +1,9 @@
+.dashboard-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dashboard-footer > div {
+    margin: 0.625rem;
+}

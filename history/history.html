@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Water Reminder</title>
+    <title>History</title>
     <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="./dashboard.css" />
+    <link rel="stylesheet" href="./history.css" />
   </head>
   <body>
     <div class="container">
@@ -18,32 +18,13 @@
           />
         </div>
       </div>
-
-      Water Remaining:
-      <div id="water-remaining"></div>
-      ml
-
-      <div>
-        <button class="add-button" id="add-button">+</button>
-      </div>
-
-      <div id="errors" class="errors">
-
-      </div>
-
-      <div class="dashboard-footer">
-        <div>
-          <a href="/history/history.html" id="history">History</a>
-        </div>
-        <div>
-          <a href="#" id="logout">Logout</a>
-        </div>
-      </div>
+      <div id="todaysDate"></div>
+      <div id="back-button"></div>
     </div>
 
     <script src="../firebase/firebase-app.js"></script>
     <script src="../firebase/firebase-auth.js"></script>
     <script src="../firebase/firebase-database.js"></script>
-    <script type="module" src="./dashboard.js"></script>
+    <script type="module" src="./history.js"></script>
   </body>
 </html>

@@ -1,0 +1,13 @@
+.center-align {
+  margin: 0 auto;
+}
+
+.spaced-columns th:not(:last-child),
+.spaced-columns td:not(:last-child) {
+  padding-right: 10px;
+}
+
+.center-align-button {
+  text-align: center;
+  margin: 1.25rem;
+}
