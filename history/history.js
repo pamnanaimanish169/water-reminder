@@ -1,8 +1,6 @@
-console.log("hostory works!");
 let userId;
 
 const todaysDate = document.getElementById("todaysDate");
-console.log(todaysDate);
 todaysDate.innerHTML = new Date().toDateString();
 
 // Initialize firebase
@@ -28,29 +26,16 @@ firebase.auth().onAuthStateChanged((user) => {
 });
 
 const getTodayEntries = (data) => {
-  console.log("getTodayEntries", data);
-
   // start time
   const startOfDay = new Date();
   startOfDay.setHours(0, 0, 0, 0);
-  console.log("startTime", startOfDay.getTime());
 
   // end time
   const endOfDay = new Date();
   endOfDay.setHours(23, 59, 59, 999);
-  console.log("endTime", endOfDay.getTime());
 
   // Get all the entries between this range
   // 1692297000000 - 1692383399999
-
-  console.log(Object.values(data)[18].timestamp);
-  console.log(Object.values(data)[18].timestamp >= startOfDay.getTime());
-  console.log(Object.values(data)[18].timestamp <= endOfDay.getTime());
-  console.log(
-    Object.values(data)[18].timestamp >= startOfDay.getTime() &&
-      Object.values(data)[18].timestamp <= endOfDay.getTime()
-  );
-
   const todaysEntries = {};
 
   for (const key in data) {
@@ -63,18 +48,16 @@ const getTodayEntries = (data) => {
     }
   }
 
-  console.log(todaysEntries);
-
   return todaysEntries;
 };
 
 const createBackButton = () => {
-    const tableElement = document.getElementById('todaysEntries');
-
     const backButtonParent = document.createElement('div');
+
     const element = document.createElement('a');
     element.setAttribute('href', '../dashboard/dashboard.html');
     element.innerText = 'Back to Dashboard';
+
     // append anchor tag to a div for styling
     backButtonParent.appendChild(element);
     backButtonParent.classList.add("center-align-button");
@@ -83,7 +66,6 @@ const createBackButton = () => {
 }
 
 const generateTable = (data) => {
-  console.log("generateTable");
   // Create table element
   const table = document.createElement("table");
   table.id = 'todaysEntries';
@@ -159,11 +141,7 @@ const getWater = () => {
     .then((data) => {
       if (data) {
         //   3700 ml is staandard for now
-        console.log(data);
-
         const todaysEntries = getTodayEntries(data);
-        console.log(todaysEntries);
-
         generateTable(todaysEntries);
       } else {
         console.error("Error in getting todays entries: ", data);

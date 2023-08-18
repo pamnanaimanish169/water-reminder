@@ -5,26 +5,16 @@ const waterRemaining = document.getElementById("water-remaining");
 let waterRemainingValue;
 
 const getTodayEntries = (data) => {
-  console.log("getTodayEntries", data);
-
   // start time
   const startOfDay = new Date();
   startOfDay.setHours(0, 0, 0, 0);
-  console.log("startTime", startOfDay.getTime());
 
   // end time
   const endOfDay = new Date();
   endOfDay.setHours(23, 59, 59, 999);
-  console.log("endTime", endOfDay.getTime());
 
   // Get all the entries between this range
   // 1692297000000 - 1692383399999
-
-  console.log(Object.values((data))[18].timestamp)
-  console.log(Object.values((data))[18].timestamp >= startOfDay.getTime());
-  console.log(Object.values((data))[18].timestamp <= endOfDay.getTime());
-  console.log(Object.values((data))[18].timestamp >= startOfDay.getTime() && Object.values((data))[18].timestamp <= endOfDay.getTime())
-  
   const todaysEntries = {};
 
   for (const key in data) {
@@ -32,8 +22,6 @@ const getTodayEntries = (data) => {
       todaysEntries[key] = data[key];
     }
   }
-
-  console.log(todaysEntries);
 
   return todaysEntries;
 };
@@ -112,9 +100,7 @@ const getWater = () => {
     .then((data) => {
       if (data) {
         //   3700 ml is staandard for now
-        console.log(data);
         const todaysEntries = getTodayEntries(data);
-        console.log(todaysEntries);
         waterAdded = Object.values(todaysEntries).length * 200;
         const remainingWater = 3700 - waterAdded;
         waterRemainingValue = remainingWater;
