@@ -1,9 +1,18 @@
 .dashboard-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .dashboard-footer > div {
-    margin: 0.625rem;
+  margin: 0.625rem;
+}
+
+#content {
+  text-align: center;
+}
+
+#water-remaining,
+.add-button-wrapper {
+  padding: 0.625rem;
 }

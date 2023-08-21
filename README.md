@@ -48,6 +48,7 @@
   - Roboto
   - Montserrat
 - Refactor the code
+- Customize the daily goal for water (custom instead of 3.7 litres like 2.7, 3.9. Measure quantity in ml i.e. 2.7l = 2700ml and so on)
 
 # How to run this project
 

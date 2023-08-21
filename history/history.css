@@ -11,3 +11,7 @@
   text-align: center;
   margin: 1.25rem;
 }
+
+div#todaysDate {
+  text-align: center;
+}
