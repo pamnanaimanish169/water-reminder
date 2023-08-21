@@ -39,9 +39,9 @@
 
 
 
-- Figure out a way to import/export firebase in a single file, so you don't have to write it again & again
+**- Secure firebase rules(authenticate REST request with that)**
 - Hide access key
-- Secure firebase rules(authenticate REST request with that)
+- Figure out a way to import/export firebase in a single file, so you don't have to write it again & again
 - Update fonts
   - Lato
   - bebas neue
@@ -71,3 +71,4 @@ https://blog.monouso-direct.com/how-many-ml-has-a-glass/#:~:text=The%20measureme
 
 https://stackoverflow.com/questions/55801494/persist-auth-state-firebase-chrome-extension
 https://firebase.google.com/docs/reference/rest/database#section-param-auth
+https://www.youtube.com/watch?v=YWl-RmOE0TU
