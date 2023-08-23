@@ -39,8 +39,8 @@
 
 
 
-**- Secure firebase rules(authenticate REST request with that)**
-- Hide access key
+~~-Secure firebase rules(authenticate REST request with that)~~
+- Hide access key & user id
 - Figure out a way to import/export firebase in a single file, so you don't have to write it again & again
 - Update fonts
   - Lato

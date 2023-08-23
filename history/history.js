@@ -124,13 +124,17 @@ const generateTable = (data) => {
   createBackButton();
 };
 
-const getWater = () => {
+const getWater = async () => {
   let options = {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   };
+
+  let token = await firebase.auth().currentUser.getIdToken();
+  console.log(token);
+
   fetch(
-    `https://water-reminder-b9aac-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json?auth=eyJhbGciOiJSUzI1NiIsImtpZCI6IjYzODBlZjEyZjk1ZjkxNmNhZDdhNGNlMzg4ZDJjMmMzYzIzMDJmZGUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vd2F0ZXItcmVtaW5kZXItYjlhYWMiLCJhdWQiOiJ3YXRlci1yZW1pbmRlci1iOWFhYyIsImF1dGhfdGltZSI6MTY5MjU5ODkwNCwidXNlcl9pZCI6Inhib1ZSQXdiUkFQWE9KenJtMmxzdk9IZlo1ZzIiLCJzdWIiOiJ4Ym9WUkF3YlJBUFhPSnpybTJsc3ZPSGZaNWcyIiwiaWF0IjoxNjkyNTk4OTA0LCJleHAiOjE2OTI2MDI1MDQsImVtYWlsIjoibWFuaXNocGFtbmFuaTE2OUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsibWFuaXNocGFtbmFuaTE2OUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.BdtUoFtaoGMbBudXg1lH-lWPhYcyswjRjx9NNn1fNEJkI4j3Z1-PTAmsbTVcQ2K6is4d9RrLNDg1w0-6itQgBUtTdJhC8gWxg0kvndDJqpDJMKxb-afabROiwXox4Sa_GrCFM3mSiVpMVC7YDKX07EsgvGNLua-jb1Auuq4Qxw3k2QFQvGVB0XbzQu1xMR4wOPHTdkAXkb4QMGxXj6S6Gi4DXBppl7KG-pyETxT70AqQ25Hy6_7VfBoX8l-_aWHi-GvrrKyzhMRqQmae7MqCN0xidy4sdi4aKtzb74tnaVOcpV7Cq8YGo4Xw8LdxL-krc12BH9JULpXpGw4Ri1ZCfQ`,
+    `https://water-reminder-b9aac-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json?auth=${token}`,
     options
   )
     .then((res) => {
