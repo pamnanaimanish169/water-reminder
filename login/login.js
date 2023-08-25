@@ -49,5 +49,5 @@ chrome.storage.local.get("isAuthenticated", (result) => {
   const authState = document.getElementById('auth-state');
 
   authState.innerHTML =
-    result?.isAuthenticated === true ? "Logged In" : "Not logged In";
+    result?.isAuthenticated === true ? "" : "";
 });

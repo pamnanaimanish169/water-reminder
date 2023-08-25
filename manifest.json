@@ -1,6 +1,6 @@
 {
-  "name": "Water Reminder",
-  "description": "This app reminds you to drink a glass of water at specific interval of time.",
+  "name": "WaterMinder",
+  "description": "Embark on a journey to improved well-being, one refreshing sip at a time.",
   "version": "1.0.0",
   "manifest_version": 3,
   "permissions": [
