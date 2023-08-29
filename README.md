@@ -73,3 +73,21 @@ https://blog.monouso-direct.com/how-many-ml-has-a-glass/#:~:text=The%20measureme
 https://stackoverflow.com/questions/55801494/persist-auth-state-firebase-chrome-extension
 https://firebase.google.com/docs/reference/rest/database#section-param-auth
 https://www.youtube.com/watch?v=YWl-RmOE0TU
+
+Because of the following issue, your extension may require an in-depth review:
+- Broad Host Permissions
+Instead of requesting broad host permissions, consider using the activeTab permission, or specify the sites that your extension needs access to. Both options are more secure than allowing full access to an indeterminate number of sites, and they may help minimize review times.
+
+The activeTab permission allows access to a tab in response to an explicit user gesture.
+
+{
+...
+"permissions": ["activeTab"]
+}
+If your extension only needs to run on certain sites, simply specify those sites in the extension manifest:
+
+{
+...
+"permissions": ["https://example.com/*"]
+}
+

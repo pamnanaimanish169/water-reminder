@@ -18,6 +18,6 @@
   "author": "Manish Pamnani",
   "action": {
     "default_popup": "index.html",
-    "default_icon": "./glass-of-water.svg"
+    "default_icon": "./glass-of-water.jpg"
   }
 }
