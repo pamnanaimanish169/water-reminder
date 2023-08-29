@@ -1,7 +1,7 @@
 {
   "name": "WaterMinder",
   "description": "Embark on a journey to improved well-being, one refreshing sip at a time.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 3,
   "permissions": [
     "notifications", "alarms", "storage",
