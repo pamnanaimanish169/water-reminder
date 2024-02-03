@@ -28,6 +28,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
 const error = document.getElementById("errors");
 const loginUser = () => {
+  console.log('loginUser')
   const email = document.getElementById("email")?.value || "";
   const password = document.getElementById("password")?.value || "";
 
@@ -35,7 +36,7 @@ const loginUser = () => {
     .auth()
     .signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
-      chrome.storage.local.set({ isAuthenticated: true });
+      chrome.storage.local.set({ user: userCredential });
       error.innerHTML = "";
       window.location.href = "../dashboard/dashboard.html";
     })
@@ -43,11 +44,3 @@ const loginUser = () => {
       error.innerHTML = e?.message;
     });
 };
-
-chrome.storage.local.get("isAuthenticated", (result) => {
-  const isAuthenticated = result?.isAuthenticated;
-  const authState = document.getElementById('auth-state');
-
-  authState.innerHTML =
-    result?.isAuthenticated === true ? "" : "";
-});

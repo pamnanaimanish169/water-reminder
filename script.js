@@ -4,13 +4,12 @@ element.addEventListener("click", (event) => {
   window.location.href='/signup/signup.html';
 });
 
-chrome.runtime.sendMessage('getAuthStatus', (data) => {
-  if(data === true) {
-    // redirect to dashboard.html
+
+chrome.storage.local.get("user", (data) => {
+  console.log('user', data);
+  if(data?.user) {
     window.location.href = './dashboard/dashboard.html';
   } else {
-    //redirec to login.html
     window.location.href = './login/login.html';
   }
 });
-

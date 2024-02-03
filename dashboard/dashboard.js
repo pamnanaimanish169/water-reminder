@@ -19,7 +19,11 @@ const getTodayEntries = (data) => {
   const todaysEntries = {};
 
   for (const key in data) {
-    if (data.hasOwnProperty(key) && (data[key]?.timestamp >= startOfDay.getTime() && data[key]?.timestamp <= endOfDay.getTime()) ) {
+    if (
+      data.hasOwnProperty(key) &&
+      data[key]?.timestamp >= startOfDay.getTime() &&
+      data[key]?.timestamp <= endOfDay.getTime()
+    ) {
       todaysEntries[key] = data[key];
     }
   }
@@ -55,9 +59,9 @@ addButton.addEventListener("click", (event) => {
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     console.log(user);
-    console.log(user.currentUser)
+    console.log(user.currentUser);
     userId = user?.uid;
-    
+
     getWater();
   }
 });
@@ -135,15 +139,25 @@ const getWater = async () => {
     .catch((error) => console.error("Error in fetching data"));
 };
 
+
 // Logout functionality
 const logout = document.getElementById("logout");
 logout.addEventListener("click", () => {
+  console.log("logout");
   firebase
     .auth()
     .signOut()
     .then((res) => {
-      chrome.storage.local.set({ isAuthenticated: false });
-      window.location.href = "../login/login.html";
+      console.log(res, "logout");
+      chrome.storage.local.clear((result) => {
+        let error = chrome.runtime.lastError;
+        if (error) {
+          console.error("Error in logging out the user", error);
+        } else {
+          console.log("User is logged out successfully");
+          window.location.href = "../login/login.html";
+        }
+      });
     })
     .catch((error) => {
       console.error("Error in signing out the user: ", error);
