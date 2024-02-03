@@ -1,6 +1,7 @@
 let userId;
 let accessToken;
 let waterAdded;
+
 const errorElement = document.getElementById("errors");
 const waterRemaining = document.getElementById("water-remaining");
 let waterRemainingValue;
@@ -58,8 +59,6 @@ addButton.addEventListener("click", (event) => {
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    console.log(user);
-    console.log(user.currentUser);
     userId = user?.uid;
 
     getWater();
@@ -78,10 +77,9 @@ const addWater = async () => {
     };
 
     let token = await firebase.auth().currentUser.getIdToken();
-    console.log(token);
 
     fetch(
-      `https://water-reminder-b9aac-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json?auth=${auth}`,
+      `https://water-reminder-b9aac-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json?auth=${token}`,
       options
     )
       .then((res) => {
@@ -90,7 +88,7 @@ const addWater = async () => {
           return res.json();
         }
       })
-      .catch((error) => console.error("Error in fetching data"));
+      .catch((error) => console.error("Error in fetching data", error));
   }
 };
 
@@ -101,7 +99,6 @@ const getWater = async () => {
   };
 
   let token = await firebase.auth().currentUser.getIdToken();
-  console.log(token);
 
   fetch(
     `https://water-reminder-b9aac-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json?auth=${token}`,
@@ -143,18 +140,15 @@ const getWater = async () => {
 // Logout functionality
 const logout = document.getElementById("logout");
 logout.addEventListener("click", () => {
-  console.log("logout");
   firebase
     .auth()
     .signOut()
     .then((res) => {
-      console.log(res, "logout");
       chrome.storage.local.clear((result) => {
         let error = chrome.runtime.lastError;
         if (error) {
           console.error("Error in logging out the user", error);
         } else {
-          console.log("User is logged out successfully");
           window.location.href = "../login/login.html";
         }
       });

@@ -9,7 +9,6 @@ body {
 }
 
 .container {
-  /* display: flex; */
   flex-direction: column;
   align-items: center;
   margin: 0.625rem;
@@ -27,13 +26,6 @@ body {
   font-size: 2rem;
   height: 5rem;
   font-weight: lighter;
-}
-
-#remind-time {
-  border: none;
-  border-bottom: 1px solid black;
-  outline: none;
-  padding: 0.3125rem;
 }
 
 .remind-container {

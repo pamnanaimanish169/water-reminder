@@ -32,6 +32,10 @@
   width: 100%;
 }
 
+#login-register-button:hover {
+  cursor: pointer;
+}
+
 #errors {
   color: red;
   text-align: center;

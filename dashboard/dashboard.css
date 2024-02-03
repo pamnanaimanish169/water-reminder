@@ -16,3 +16,7 @@
 .add-button-wrapper {
   padding: 0.625rem;
 }
+
+#add-button:hover {
+  cursor: pointer;
+}
