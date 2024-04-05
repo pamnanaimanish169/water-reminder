@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Settings</title>
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="./settings.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="remind-form">
-        <div>
-          <img
-            src="../glass-of-water.svg"
-            alt="glass-of-water"
-            class="glass-of-water"
-          />
-        </div>
-      </div>
 
-      <div class="settings-container">
-        <span>Notifications (On/Off)</span>
-        <label class="switch" id="switch">
-          <input type="checkbox" id="notifications"/>
-          <span class="slider round"></span>
-        </label>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./settings.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="remind-form">
+      <div>
+        <img src="../glass-of-water.svg" alt="glass-of-water" class="glass-of-water" />
       </div>
     </div>
 
-    <script src="../firebase/firebase-app.js" defer></script>
-    <script src="../firebase/firebase-auth.js" defer></script>
-    <script src="../firebase/firebase-database.js" defer></script>
-    <script src="./settings.js" defer></script>
-  </body>
+    <div class="settings-container">
+      <span>Notifications (On/Off)</span>
+      <label class="switch" id="switch">
+        <input type="checkbox" id="notifications" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="back-button">
+      <a href="../dashboard/dashboard.html">Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script src="../firebase/firebase-app.js" defer></script>
+  <script src="../firebase/firebase-auth.js" defer></script>
+  <script src="../firebase/firebase-database.js" defer></script>
+  <script src="./settings.js" defer></script>
+</body>
+
 </html>

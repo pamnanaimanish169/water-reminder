@@ -66,3 +66,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 /* Toggle Switch */
+
+.back-button {
+  text-align: center;
+}
