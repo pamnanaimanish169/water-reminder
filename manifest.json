@@ -12,12 +12,9 @@
     "pages": ["https://www.gstatic.com/*"]
   },
   "host_permissions": ["<all_urls>"],
-  "background": {
-    "service_worker": "background.js"
-  },
   "author": "Manish Pamnani",
   "action": {
-    "default_popup": "index.html",
-    "default_icon": "./glass-of-water.jpg"
+    "default_popup": "./index.html",
+    "default_icon": "./assets/images/glass-of-water.jpg"
   }
 }

@@ -1,34 +1,26 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="remind-form">
-        <div>
-          <img
-            src="./glass-of-water.svg"
-            alt="glass-of-water"
-            class="glass-of-water"
-          />
-        </div>
-        <br />
-        <div id="login-signup-container">
-          <!-- This will give the following error: -->
-          <!-- Refused to run the JavaScript URL because it violates the following Content Security Policy directive: "script-src 'self'". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution. Note that hashes do not apply to event handlers, style attributes and javascript: navigations unless the 'unsafe-hashes' keyword is present. -->
-          <!-- <a id="login-signup-button" href="javascript:void(0)">Login/Signup</a> -->
 
-          <!-- SOlution: -->
-          <a id="login-signup-button" href="#">Login/Signup</a>
-          to access full features
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="remind-form">
+      <div>
+        <img src="./assets/images/glass-of-water.svg" alt="glass-of-water" class="glass-of-water" />
+      </div>
+      <br />
+      <div id="login-signup-container">
+        <a id="login-signup-button" href="./components/signup/signup.html">Login/Signup</a>
+        to access full features
       </div>
     </div>
-    
-    <!-- Load external JavaScript files -->
-    <script src="./script.js"></script>
-    <script src="./popup.js"></script>
-  </body>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
 </html>

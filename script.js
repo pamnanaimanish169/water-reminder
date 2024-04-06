@@ -1,15 +1,10 @@
-const element = document.getElementById("login-signup-button");
-element.addEventListener("click", (event) => {
-  event.preventDefault();
-  window.location.href='/signup/signup.html';
-});
-
+console.log('inside script.js');
 
 chrome.storage.local.get("user", (data) => {
   console.log('user', data);
-  if(data?.user) {
-    window.location.href = './dashboard/dashboard.html';
+  if (data?.user) {
+    window.location.href = '../components/dashboard/dashboard.html';
   } else {
-    window.location.href = './login/login.html';
+    window.location.href = '../components/login/login.html';
   }
 });

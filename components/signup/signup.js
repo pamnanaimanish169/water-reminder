@@ -1,3 +1,5 @@
+console.log('signup.js');
+
 const element = document.getElementById("login-register-button");
 element.addEventListener("click", () => {
   event.preventDefault();

@@ -1,8 +1,10 @@
 # Next steps
 
+- Refactor and clean the code
+  - Introduced the use of .env variables for security reasons
+  - Reuse the logo image i.e. glass-of-water.svg
+  - Use ternary instead of if else
 - Implement Alarms based on the notification value of the user.
-
-
 
 # References
 
@@ -12,8 +14,7 @@ About 15.5 cups (3.7 liters) of fluids a day for men
 About 11.5 cups (2.7 liters) of fluids a day for women
 
 3.7litres = 3700ml
-https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/water/art-20044256#:~:text=About%2015.5%20cups%20(3.7%20liters,fluids%20a%20day%20for%20women
+<https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/water/art-20044256#:~:text=About%2015.5%20cups%20(3.7%20liters,fluids%20a%20day%20for%20women>
 
 The measurement of a glass of water in milliliters varies between 200 ml and 250 ml.
-https://blog.monouso-direct.com/how-many-ml-has-a-glass/#:~:text=The%20measurement%20of%20a%20glass,200%20ml%20and%20250%20ml
-
+<https://blog.monouso-direct.com/how-many-ml-has-a-glass/#:~:text=The%20measurement%20of%20a%20glass,200%20ml%20and%20250%20ml>

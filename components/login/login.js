@@ -1,3 +1,5 @@
+console.log('login.js');
+
 const element = document.getElementById("login-register-button");
 element.addEventListener("click", () => {
   event.preventDefault();
@@ -28,7 +30,6 @@ firebase.auth().onAuthStateChanged((user) => {
 
 const error = document.getElementById("errors");
 const loginUser = () => {
-  console.log('loginUser')
   const email = document.getElementById("email")?.value || "";
   const password = document.getElementById("password")?.value || "";
 
@@ -44,3 +45,10 @@ const loginUser = () => {
       error.innerHTML = e?.message;
     });
 };
+
+const loginButton = document.getElementById("login-register-button");
+loginButton.addEventListener("click", (event) => {
+  loginUser();
+});
+
+// loginUser
