@@ -16,6 +16,7 @@ firebase.initializeApp(firebaseConfig);
 // constants/variables
 let userId;
 let isLoading = true;
+
 const notificationSwitch = document.getElementById("notifications");
 const element = document.getElementById("settings-container");
 const loader = document.getElementById("loader");
@@ -33,7 +34,6 @@ firebase.auth().onAuthStateChanged((user) => {
  * @returns {Promise<void>}
  */
 const fetchInitialNotificationSettings = async () => {
-  console.log('fetchInitialNotificationSettings');
   let options = {
     method: "GET",
     headers: { "Content-Type": "application/json" },
@@ -60,7 +60,7 @@ const fetchInitialNotificationSettings = async () => {
         element.classList.add("visible");
         loader.style.display = "none";
       })
-      .catch((error) => console.error("Error in fetching data", error));
+      .catch((error) => console.error("Error in fetching Initial Notification settings", error));
   }
 };
 
@@ -70,7 +70,6 @@ const fetchInitialNotificationSettings = async () => {
  * @returns {Promise<void>}
  */
 const updateNotificationSettings = async (notificationEnabled) => {
-  console.log('updateNotificationSettings');
   if (userId) {
     let options = {
       method: "PATCH",
@@ -89,7 +88,7 @@ const updateNotificationSettings = async (notificationEnabled) => {
           return res.json();
         }
       })
-      .catch((error) => console.error("Error in fetching data", error));
+      .catch((error) => console.error("Error in updating Notification settings", error));
   }
 };
 

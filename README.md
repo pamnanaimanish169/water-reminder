@@ -4,6 +4,7 @@
   - Introduced the use of .env variables for security reasons
   - Reuse the logo image i.e. glass-of-water.svg
   - Use ternary instead of if else
+  - Reuse the firebase code for better readability
 - Implement Alarms based on the notification value of the user.
 
 # References
