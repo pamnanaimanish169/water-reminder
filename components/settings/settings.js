@@ -15,7 +15,10 @@ firebase.initializeApp(firebaseConfig);
 
 // constants/variables
 let userId;
-const notificationSwitch = document.getElementById("switch");
+let isLoading = true;
+const notificationSwitch = document.getElementById("notifications");
+const element = document.getElementById("settings-container");
+const loader = document.getElementById("loader");
 
 // Others
 firebase.auth().onAuthStateChanged((user) => {
@@ -30,6 +33,7 @@ firebase.auth().onAuthStateChanged((user) => {
  * @returns {Promise<void>}
  */
 const fetchInitialNotificationSettings = async () => {
+  console.log('fetchInitialNotificationSettings');
   let options = {
     method: "GET",
     headers: { "Content-Type": "application/json" },
@@ -39,7 +43,7 @@ const fetchInitialNotificationSettings = async () => {
 
   if (token) {
     fetch(
-      `${process.env.API_URL}/users/${userId}.json?auth=${token}`,
+      `https://water-reminder-b9aac-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json?auth=${token}`,
       options
     )
       .then((res) => {
@@ -48,12 +52,13 @@ const fetchInitialNotificationSettings = async () => {
         }
       })
       .then((data) => {
-        Object.entries(data).forEach(([key, value]) => {
-          data.notificationEnabled === true ?
-            notificationSwitch.checked = true
-            :
-            notificationSwitch.checked = false;
-        });
+        data && data.notificationEnabled === true ? notificationSwitch.checked = true : notificationSwitch.checked = false;
+      })
+      .finally(() => {
+        isLoading = false;
+        element.style.display = "flex";
+        element.classList.add("visible");
+        loader.style.display = "none";
       })
       .catch((error) => console.error("Error in fetching data", error));
   }
@@ -65,6 +70,7 @@ const fetchInitialNotificationSettings = async () => {
  * @returns {Promise<void>}
  */
 const updateNotificationSettings = async (notificationEnabled) => {
+  console.log('updateNotificationSettings');
   if (userId) {
     let options = {
       method: "PATCH",
@@ -89,25 +95,20 @@ const updateNotificationSettings = async (notificationEnabled) => {
 
 // Event Handlers
 notificationSwitch.addEventListener("change", (event) => {
-  if (event.target.checked === true) {
-    const confirm = window.confirm(
-      "Do you want to turn on the periodic reminders?"
-    );
+  event.preventDefault();
 
-    // If confirm is true then set the notificationsEnabled to true (on the backend);
-    if (confirm === true) {
-      updateNotificationSettings(true);
-    }
-  } else {
-    const confirmOffAlarm = window.confirm(
-      "Do you want to turn off the periodic reminders?"
-    );
-    console.log(confirmOffAlarm);
+  const confirmation = confirm(
+    `Are you sure you want to turn ${event.target.checked ? "on" : "off"
+    } notifications?`
+  );
 
-    // If confirm is true then set the notificationsEnabled to false (on the backend)
-    if (confirmOffAlarm === true) {
-      updateNotificationSettings(false);
-    }
+  if (confirmation) {
+    updateNotificationSettings(event.target.checked);
+    notificationSwitch.checked = event.target.checked;
+  }
+
+  if (!confirmation) {
+    notificationSwitch.checked = !event.target.checked;
   }
 });
 

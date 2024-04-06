@@ -17,21 +17,23 @@
       </div>
     </div>
 
-    <div class="settings-container">
+    <div id="settings-container">
       <span>Notifications (On/Off)</span>
-      <label class="switch" id="switch">
-        <input type="checkbox" id="notifications" />
-        <span class="slider round"></span>
-      </label>
+      <input type="checkbox" id="notifications" />
     </div>
+
+    <div class="loader-container">
+      <img src="../../assets/images/loader.svg" alt="loader" id="loader" />
+    </div>
+
     <div class="back-button">
       <a href="../dashboard/dashboard.html">Back to Dashboard</a>
     </div>
   </div>
 
-  <script src="../firebase/firebase-app.js" defer></script>
-  <script src="../firebase/firebase-auth.js" defer></script>
-  <script src="../firebase/firebase-database.js" defer></script>
+  <script src="../../custom_scripts/firebase/firebase-app.js" defer></script>
+  <script src="../../custom_scripts/firebase/firebase-auth.js" defer></script>
+  <script src="../../custom_scripts/firebase/firebase-database.js" defer></script>
   <script src="./settings.js" defer></script>
 </body>
 
