@@ -34,75 +34,74 @@ try {
   // Getting userId
   chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     console.log("Message from other scripts:", request);
-    if (request.message === "getAuthStatus") {
-      sendResponse({ userId });
-    }
-
-    else if (request.message === 'getToken') {
-      tokenPromise.then((token) => {
-        sendResponse(token);
-      });
-    }
-
-    // Signing out the user
-    else if (request.message === 'signOut') {
-      firebase
-        .auth()
-        .signOut()
-        .then((res) => {
-          chrome.storage.local.clear((result) => {
-            let error = chrome.runtime.lastError;
-            if (error) {
-              console.error("Error in logging out the user", error);
-              sendResponse(false);
-            } else {
-              // window.location.href = "../login/login.html";
-              // return true;
-              sendResponse(true);
-            }
+    switch (request.message) {
+      case "getAuthStatus":
+        sendResponse({ userId });
+        break;
+      case "getToken":
+        tokenPromise.then((token) => {
+          sendResponse(token);
+        });
+        break;
+      case "signOut":
+        firebase
+          .auth()
+          .signOut()
+          .then((res) => {
+            chrome.storage.local.clear((result) => {
+              let error = chrome.runtime.lastError;
+              if (error) {
+                console.error("Error in logging out the user", error);
+                sendResponse(false);
+              } else {
+                // window.location.href = "../login/login.html";
+                // return true;
+                sendResponse(true);
+              }
+            });
+          })
+          .catch((error) => {
+            console.error("Error in signing out the user: ", error);
           });
-        })
-        .catch((error) => {
-          console.error("Error in signing out the user: ", error);
-        });
+        break;
+      case "login":
+        const email = request.email;
+        const password = request.password;
+
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            chrome.storage.local.set({ user: userCredential });
+            sendResponse({ status: true, message: '' });
+          })
+          .catch((e) => {
+            console.error("Error in logging in the user: ", e);
+            sendResponse({ status: false, message: e?.message });
+          });
+        break;
+      case "signup":
+        const userEmail = request.email;
+        const userPassword = request.password;
+
+        console.log('signup background', userEmail, userPassword, 'signup background');
+
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(userEmail, userPassword)
+          .then((userCredential) => {
+            chrome.storage.local.set({ user: userCredential });
+            sendResponse({ status: true, message: '' });
+          })
+          .catch((e) => {
+            console.error("Error in signing up the user: ", e);
+            sendResponse({ status: false, message: e?.message });
+          });
+        break;
+      default:
+        console.log('No message found');
+        break;
     }
-
-    else if (request.message === 'login') {
-      const email = request.email;
-      const password = request.password;
-
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          chrome.storage.local.set({ user: userCredential });
-          sendResponse({ status: true, message: '' });
-        })
-        .catch((e) => {
-          console.error("Error in logging in the user: ", e);
-          sendResponse({ status: false, message: e?.message });
-        });
-    }
-
-    else if (request.message === 'signup') {
-      const email = request.email;
-      const password = request.password;
-
-      console.log('signup background', email, password, 'signup background');
-
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          chrome.storage.local.set({ user: userCredential });
-          sendResponse({ status: true, message: '' });
-        })
-        .catch((e) => {
-          console.error("Error in signing up the user: ", e);
-          sendResponse({ status: false, message: e?.message });
-        });
-    }
-
     return true;
   });
 

@@ -6,7 +6,7 @@
       - ~~Settings Page~~
       - ~~History Page~~
       - ~~Dashboard Page~~
-      - Signup/Login Page
+      - ~~Signup/Login Page~~
   - Introduce the use of .env variables for security reasons
   - Reuse the logo image i.e. glass-of-water.svg
   - Use ternary instead of if else
