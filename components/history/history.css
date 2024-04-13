@@ -14,4 +14,33 @@
 
 div#todaysDate {
   text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#loader {
+  display: flex;
+  width: 2rem;
+}
+
+#backButton {
+  justify-content: center;
+  align-items: center;
+}
+
+#todaysEntries {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+tr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }

@@ -16,13 +16,17 @@
         <img src="../../assets/images/glass-of-water.svg" alt="glass-of-water" class="glass-of-water" />
       </div>
     </div>
-    <div id="todaysDate"></div>
-    <div id="back-button"></div>
+    <div id="history-container">
+      <div id="todaysDate">
+      </div>
+    </div>
+    <a href="../dashboard/dashboard.html" id="backButton">Back to Dashboard</a>
   </div>
 
-  <script src="../../custom_scripts/firebase/firebase-app.js"></script>
-  <script src="../../custom_scripts/firebase/firebase-auth.js"></script>
-  <script src="../../custom_scripts/firebase/firebase-database.js"></script>
+  <div class="loader-container">
+    <img src="../../assets/images/loader.svg" alt="loader" id="loader" />
+  </div>
+
   <script type="module" src="./history.js"></script>
 </body>
 
