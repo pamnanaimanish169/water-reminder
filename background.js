@@ -33,7 +33,7 @@ try {
 
   // Getting userId
   chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    console.log("Message from settings script:", request);
+    console.log("Message from other scripts:", request);
     if (request.message === "getAuthStatus") {
       sendResponse({ userId });
     }
@@ -44,11 +44,32 @@ try {
       });
     }
 
+    else if (request.message === 'signOut') {
+      firebase
+        .auth()
+        .signOut()
+        .then((res) => {
+          chrome.storage.local.clear((result) => {
+            let error = chrome.runtime.lastError;
+            if (error) {
+              console.error("Error in logging out the user", error);
+              sendResponse(false);
+            } else {
+              // window.location.href = "../login/login.html";
+              // return true;
+              sendResponse(true);
+            }
+          });
+        })
+        .catch((error) => {
+          console.error("Error in signing out the user: ", error);
+        });
+    }
+
     return true;
   });
 
   // Getting token
-
   firebase?.auth().onAuthStateChanged((user) => {
     if (user) {
       console.log(user, 'user?.uid');
@@ -58,8 +79,9 @@ try {
     }
   });
 
+  // Signing out the user
 
-  console.log('firebase initialized');
+
 } catch (error) {
-  console.log('Error in Initilising firebase App', error);
+  console.error('Error in Initilising firebase App', error);
 }

@@ -3,9 +3,15 @@
 - Refactor and clean the code
   - Reuse the firebase code for better readability
     - Move all the firebase function to background.js
+      - ~~Settings Page~~
+      - ~~History Page~~
+      - ~~Dashboard Page~~
+      - Signup/Login Page
   - Introduce the use of .env variables for security reasons
   - Reuse the logo image i.e. glass-of-water.svg
   - Use ternary instead of if else
+  - Show only last 5 entries instead of all the entries in history page
+  - Create a util function for filterEntriesForToday as it is been used in multiple places
 - Implement Alarms based on the notification value of the user.
 - Imtrodue a website to show detailed statistics and charge for the same
 
