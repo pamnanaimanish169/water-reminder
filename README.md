@@ -1,11 +1,13 @@
 # Next steps
 
 - Refactor and clean the code
-  - Introduced the use of .env variables for security reasons
+  - Reuse the firebase code for better readability
+    - Move all the firebase function to background.js
+  - Introduce the use of .env variables for security reasons
   - Reuse the logo image i.e. glass-of-water.svg
   - Use ternary instead of if else
-  - Reuse the firebase code for better readability
 - Implement Alarms based on the notification value of the user.
+- Imtrodue a website to show detailed statistics and charge for the same
 
 # References
 
@@ -19,3 +21,7 @@ About 11.5 cups (2.7 liters) of fluids a day for women
 
 The measurement of a glass of water in milliliters varies between 200 ml and 250 ml.
 <https://blog.monouso-direct.com/how-many-ml-has-a-glass/#:~:text=The%20measurement%20of%20a%20glass,200%20ml%20and%20250%20ml>
+
+# Important Links
+
+<https://stackoverflow.com/questions/59914490/how-to-handle-unchecked-runtime-lasterror-the-message-port-closed-before-a-res>

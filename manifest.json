@@ -11,6 +11,9 @@
   "sandbox": {
     "pages": ["https://www.gstatic.com/*"]
   },
+  "background": {
+    "service_worker": "./background.js"
+  },
   "host_permissions": ["<all_urls>"],
   "author": "Manish Pamnani",
   "action": {

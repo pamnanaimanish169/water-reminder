@@ -1,31 +1,23 @@
-// initialisation
-const firebaseConfig = {
-  apiKey: "AIzaSyCQLG34McSyK32qYsLAUYhYD9_BUK0QLao",
-  authDomain: "water-reminder-b9aac.firebaseapp.com",
-  databaseURL:
-    "https://water-reminder-b9aac-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "water-reminder-b9aac",
-  storageBucket: "water-reminder-b9aac.appspot.com",
-  messagingSenderId: "628031196131",
-  appId: "1:628031196131:web:5009a8342f96ce10882ed6",
-  measurementId: "G-E8SHRJ9ZEB",
-};
-
-firebase.initializeApp(firebaseConfig);
-
 // constants/variables
-let userId;
+let userId = '';
 let isLoading = true;
+let token = '';
 
 const notificationSwitch = document.getElementById("notifications");
 const element = document.getElementById("settings-container");
 const loader = document.getElementById("loader");
 
 // Others
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    userId = user?.uid;
+chrome.runtime.sendMessage({ message: "getAuthStatus" }, function (response) {
+  console.log("Response from background script:", response);
+  if (response.userId) {
+    userId = response.userId;
   }
+});
+
+chrome.runtime.sendMessage({ message: "getToken" }, async function (response) {
+  console.log("Response from background script:", response);
+  token = response;
 });
 
 // function handlers
@@ -38,8 +30,6 @@ const fetchInitialNotificationSettings = async () => {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   };
-
-  let token = await firebase.auth().currentUser?.getIdToken();
 
   if (token) {
     fetch(
@@ -76,8 +66,6 @@ const updateNotificationSettings = async (notificationEnabled) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ notificationEnabled: notificationEnabled }),
     };
-
-    let token = await firebase.auth().currentUser.getIdToken();
 
     fetch(
       `https://water-reminder-b9aac-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json?auth=${token}`,
