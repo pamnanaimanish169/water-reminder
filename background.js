@@ -44,6 +44,7 @@ try {
       });
     }
 
+    // Signing out the user
     else if (request.message === 'signOut') {
       firebase
         .auth()
@@ -63,6 +64,42 @@ try {
         })
         .catch((error) => {
           console.error("Error in signing out the user: ", error);
+        });
+    }
+
+    else if (request.message === 'login') {
+      const email = request.email;
+      const password = request.password;
+
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          chrome.storage.local.set({ user: userCredential });
+          sendResponse({ status: true, message: '' });
+        })
+        .catch((e) => {
+          console.error("Error in logging in the user: ", e);
+          sendResponse({ status: false, message: e?.message });
+        });
+    }
+
+    else if (request.message === 'signup') {
+      const email = request.email;
+      const password = request.password;
+
+      console.log('signup background', email, password, 'signup background');
+
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          chrome.storage.local.set({ user: userCredential });
+          sendResponse({ status: true, message: '' });
+        })
+        .catch((e) => {
+          console.error("Error in signing up the user: ", e);
+          sendResponse({ status: false, message: e?.message });
         });
     }
 

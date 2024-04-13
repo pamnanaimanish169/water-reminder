@@ -1,54 +1,33 @@
-console.log('login.js');
-
+// constants/variables
 const element = document.getElementById("login-register-button");
-element.addEventListener("click", () => {
-  event.preventDefault();
-  loginUser();
-});
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCQLG34McSyK32qYsLAUYhYD9_BUK0QLao",
-  authDomain: "water-reminder-b9aac.firebaseapp.com",
-  databaseURL:
-    "https://water-reminder-b9aac-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "water-reminder-b9aac",
-  storageBucket: "water-reminder-b9aac.appspot.com",
-  messagingSenderId: "628031196131",
-  appId: "1:628031196131:web:5009a8342f96ce10882ed6",
-  measurementId: "G-E8SHRJ9ZEB",
-};
-
-firebase.initializeApp(firebaseConfig);
-
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    chrome.storage.local.set({ isAuthenticated: true });
-  } else {
-    chrome.storage.local.set({ isAuthenticated: false });
-  }
-});
-
 const error = document.getElementById("errors");
-const loginUser = () => {
+
+// Function handlers
+
+/**
+ * @description This function is used to login the user
+ * @returns {Promise<void>}
+ */
+const login = () => {
+  console.log('login');
   const email = document.getElementById("email")?.value || "";
   const password = document.getElementById("password")?.value || "";
 
-  firebase
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      chrome.storage.local.set({ user: userCredential });
+  chrome.runtime.sendMessage({ message: "login", email, password }, function (response) {
+    console.log("Response from background script:", response);
+    if (response.status) {
       error.innerHTML = "";
       window.location.href = "../dashboard/dashboard.html";
-    })
-    .catch((e) => {
-      error.innerHTML = e?.message;
-    });
+    } else {
+      error.innerHTML = response.message;
+    }
+  });
 };
 
-const loginButton = document.getElementById("login-register-button");
-loginButton.addEventListener("click", (event) => {
-  loginUser();
-});
+// Event listeners
 
-// loginUser
+// Login button click
+element.addEventListener("click", () => {
+  event.preventDefault();
+  login();
+});
